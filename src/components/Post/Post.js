@@ -81,4 +81,7 @@ export default function Post(props) {
         <CardContent>
           
         </CardContent>
-      </Collaps
+      </Collapse>
+    </Card>
+  );
+}

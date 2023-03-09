@@ -1,4 +1,5 @@
 import Post from './../Post/Post';
+import PostForm from './../Post/PostForm';
 import React, { useEffect, useState } from 'react'
 import { Container } from '@mui/material';
 
@@ -28,6 +29,9 @@ function Home() {
         }
       )
   }, [])
+  useEffect(()=>{
+    refreshPosts()
+  },[postList])
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -36,6 +40,13 @@ function Home() {
   } else {
     return (
       <Container maxWidth="sm">
+        <PostForm 
+        title={"title"} 
+        text={"text"} 
+        userId={1} 
+        userName={"username"}
+        refreshPosts={refreshPosts} 
+        />
         {postList.map(post => (
           <Post title={post.title} text={post.text} userId={post.userId} userName={post.userName}></Post>
          
